@@ -55,7 +55,7 @@ import { useCoinData } from '@/core/composables/CoinData/coinData.composable'
 import { useAppViewGrid } from '@core/composables/AppViewGrid/AppViewGrid.composable'
 import { formatUsdValue, formatFloatingPointValue } from '@core/helper/number-format-helper'
 import BN from 'bignumber.js'
-import Web3Utils from 'web3-utils'
+import * as Web3Utils from 'web3-utils'
 import { useNetwork } from '@/core/composables/Network/useNetwork'
 
 const { currencyName } = useNetwork()
