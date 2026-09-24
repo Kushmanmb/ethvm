@@ -96,7 +96,7 @@ dependencies:
     specifier: ^6.16.0
     version: 6.16.0
   roboto-fontface:
-    specifier: ^0.10.0
+    specifier: 0.10.0
     version: 0.10.0
   ts-loader:
     specifier: ^9.6.2

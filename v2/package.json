@@ -48,7 +48,7 @@
         "pinia": "^2.3.1",
         "prismjs": "^1.30.0",
         "qs": "^6.16.0",
-        "roboto-fontface": "^0.10.0",
+        "roboto-fontface": "0.10.0",
         "ts-loader": "^9.6.2",
         "vue": "^3.5.43",
         "vue-chartjs": "^4.1.2",
