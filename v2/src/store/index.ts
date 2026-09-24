@@ -1,5 +1,5 @@
 import BN from 'bignumber.js'
-import Web3Utils from 'web3-utils'
+import * as Web3Utils from 'web3-utils'
 import { defineStore } from 'pinia'
 import { GetLatestPricesQuery } from '@core/composables/CoinData/getLatestPrices.generated'
 import { useStorage, RemovableRef } from '@vueuse/core'
@@ -223,9 +223,9 @@ export const useStore = defineStore('main', {
                                 allTokens.push(_token)
                                 return
                             }
-                            const balanceInToken = Web3Utils.toBN(_token.balance)
-                            const balanceInAll = Web3Utils.toBN(allTokens[index].balance)
-                            const newBalance = balanceInAll.add(balanceInToken)
+                            const balanceInToken = BigInt(_token.balance)
+                            const balanceInAll = BigInt(allTokens[index].balance)
+                            const newBalance = balanceInAll + balanceInToken
                             const newItem = {
                                 ..._token,
                                 balance: Web3Utils.toHex(newBalance)

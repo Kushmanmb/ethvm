@@ -1,4 +1,4 @@
-import Web3Utils from 'web3-utils'
+import * as Web3Utils from 'web3-utils'
 
 export interface NftId {
     id: string

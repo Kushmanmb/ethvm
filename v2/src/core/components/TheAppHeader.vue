@@ -106,7 +106,7 @@ import { formatUsdValue, formatPercentageValue } from '../helper/number-format-h
 import { useGetLatestBlockInfoQuery } from '@module/block/apollo/BlockStats/blockStats.generated'
 import { useBlockSubscription } from '@core/composables/NewBlock/newBlock.composable'
 import BN from 'bignumber.js'
-import Web3Utils from 'web3-utils'
+import * as Web3Utils from 'web3-utils'
 
 /* Vuetify BreakPoints */
 const { name, xs, lgAndUp } = useDisplay()

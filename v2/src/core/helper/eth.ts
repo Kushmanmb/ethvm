@@ -1,4 +1,4 @@
-import Web3Utils from 'web3-utils'
+import * as Web3Utils from 'web3-utils'
 
 const eth = {
     isValidHash: (raw: string): boolean => /^(0x[0-9a-fA-F]{64}|0xGENESIS_{17}[0-9a-fA-F]{40})$/.test(raw),
@@ -12,8 +12,7 @@ const eth = {
         return value ? (value.length === 42 ? Web3Utils.toChecksumAddress(value) : value) : ''
     },
     toEthFromWei(wei: number | string) {
-        const weiBN = Web3Utils.toBN(wei)
-        return Web3Utils.fromWei(weiBN, 'ether')
+        return Web3Utils.fromWei(wei.toString(), 'ether')
     }
 }
 
