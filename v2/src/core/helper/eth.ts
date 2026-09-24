@@ -12,7 +12,13 @@ const eth = {
         return value ? (value.length === 42 ? Web3Utils.toChecksumAddress(value) : value) : ''
     },
     toEthFromWei(wei: number | string) {
-        return Web3Utils.fromWei(wei.toString(), 'ether')
+        if (typeof wei === 'number') {
+            if (!Number.isSafeInteger(wei)) {
+                throw new Error('toEthFromWei expects a safe integer when wei is provided as number')
+            }
+            return Web3Utils.fromWei(wei.toString(), 'ether')
+        }
+        return Web3Utils.fromWei(wei, 'ether')
     }
 }
 
