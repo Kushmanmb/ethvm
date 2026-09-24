@@ -223,12 +223,13 @@ export const useStore = defineStore('main', {
                                 allTokens.push(_token)
                                 return
                             }
-                            const balanceInToken = BigInt(_token.balance)
-                            const balanceInAll = BigInt(allTokens[index].balance)
+                            const balanceInToken = Web3Utils.toBigInt(_token.balance)
+                            const balanceInAll = Web3Utils.toBigInt(allTokens[index].balance)
                             const newBalance = balanceInAll + balanceInToken
+                            const useHexBalance = allTokens[index].balance.startsWith('0x')
                             const newItem = {
                                 ..._token,
-                                balance: Web3Utils.toHex(newBalance)
+                                balance: useHexBalance ? Web3Utils.toHex(newBalance) : newBalance.toString()
                             }
                             allTokens.splice(index, 1, newItem)
                         })
