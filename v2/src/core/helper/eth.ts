@@ -12,7 +12,12 @@ const eth = {
         return value ? (value.length === 42 ? Web3Utils.toChecksumAddress(value) : value) : ''
     },
     toEthFromWei(wei: number | string) {
-        const normalizedWei = typeof wei === 'string' ? wei.trim().replace(/\.0+$/, '') : wei
+        const normalizedWei =
+            typeof wei === 'string'
+                ? wei
+                      .trim()
+                      .replace(/^(\d+)\.0+$/, '$1')
+                : wei
         return Web3Utils.fromWei(Web3Utils.toBigInt(normalizedWei).toString(), 'ether')
     }
 }
